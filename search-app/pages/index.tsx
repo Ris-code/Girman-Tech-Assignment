@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../styles/home.module.css"
 import Searchbar from "@/components/search";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -9,7 +10,7 @@ export default function Home() {
             <Image className={styles.bgImageIcon} src="/bg.png" alt="" width={2115} height={2115}/>
       			<div className={styles.header}>
         				<div className={styles.logo}>
-          					<img className={styles.imageIcon} alt="" src="image.png" />
+          					<Link href='/'><img className={styles.imageIcon} alt="" src="image.png" /></Link>
           					<div className={styles.text}>
             						<b className={styles.girman}>Girman</b>
             						<div className={styles.technologies}>TECHNOLOGIES</div>
@@ -23,10 +24,10 @@ export default function Home() {
           					<div className={styles.girman2}>Girman</div>
         				</div>
         				<div className={styles.buttons}>
-          					<b className={styles.home}>SEARCH</b>
-          					<div className={styles.service}>WEBSITE</div>
-          					<div className={styles.service}>LINKEDIN</div>
-          					<div className={styles.service}>CONTACT</div>
+          					<Link href='/'><b className={styles.home}>SEARCH</b></Link>
+          					<Link href='https://www.girmantech.com/'><div className={styles.service}>WEBSITE</div></Link>
+          					<Link href='https://www.linkedin.com/company/girmantech/'><div className={styles.service}>LINKEDIN</div></Link>
+          					<Link href='mailto:careers@girmantech.com'><div className={styles.service}>CONTACT</div></Link>
         				</div>
       			</div>
       			<div className={styles.colouredV1WhiteParent}>

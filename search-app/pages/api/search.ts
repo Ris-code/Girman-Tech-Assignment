@@ -3,11 +3,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { ObjectId } from "mongodb";
 import clientPromise from "@/lib/mongodb";
 
-// type Data = {
-//   user_name: string;
-//   user_location: 
-// };
-
 const fetchUsers = async(query: string | string[]) => {
   console.log("here is the query:", query)
   try {
@@ -17,15 +12,16 @@ const fetchUsers = async(query: string | string[]) => {
     let users: any[] = [];
 
     if (query) {
-      users = await db.collection("User_details").find({
+      users = await db.collection("User_info").find({
         $or: [
-          { user_name: { $regex: query, $options: 'i' } },
-          { user_location: { $regex: query, $options: 'i' } },
-          { user_phone_number: { $regex: query, $options: 'i' } }
+          { first_name: { $regex: query, $options: 'i' } },
+          { last_name: { $regex: query, $options: 'i' } },
+          { city: { $regex: query, $options: 'i' } },
+          { contact: { $regex: query, $options: 'i' } }
         ]
       }).sort({ user_name: 1 }).limit(20).toArray();
     } else {
-      users = await db.collection("User_details").find().sort({ user_name: 1 }).limit(20).toArray();
+      users = await db.collection("User_info").find().sort({ user_name: 1 }).limit(20).toArray();
     }
     console.log("Here are the users:", users)
     // Convert the array to a string

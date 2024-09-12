@@ -470,4 +470,42 @@
     color: #09090b;
     font-family: Inter;
 }
+.image {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+.imgdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.ee1cd3bE203478991599622842Icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 472.4px;
+    height: 402.4px;
+    object-fit: cover;
+}
+
+.noResultsFound {
+    position: absolute;
+    top: 429.39px;
+    left: 117.49px;
+    font-weight: 500;
+    display: inline-block;
+    width: 204px;
+}
+
+.ee1cd3bE203478991599622842Parent {
+    position: absolute;
+    top: 314px;
+    left: 724px;
+    width: 472.4px;
+    height: 451.4px;
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}

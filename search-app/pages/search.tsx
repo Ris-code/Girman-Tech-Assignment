@@ -3,19 +3,17 @@ import Searchbar from "@/components/search";
 import { useSearchParams } from "next/navigation";
 import { ObjectId } from "mongodb";
 import useSWR from "swr";
-import { Card, CardFooter, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { MapPin, Phone} from "lucide-react";
 import styles from "../styles/search.module.css"
 import Cards from '@/components/cards';
+import Link from 'next/link';
+import No_Result from '@/components/no_result';
 
 interface User {
-    _id: ObjectId;
-    user_name: string;
-    user_location: string;
-    user_phone_number: string;
-    user_profile_image: string;
+        _id: ObjectId;
+        first_name: string;
+        last_name: string;
+        city: string;
+        contact_number: string;
 }
 
 const fetchUsers = async (url: string) => {
@@ -41,7 +39,7 @@ const Search_Query: React.FC = () => {
             <header className={`${styles.header} fixed top-0 left-0 right-0 z-50 bg-white shadow-md`}>
                 <div className={styles.logoParent}>
                     <div className={styles.logo}>
-                        <img className={styles.imageIcon} alt="" src="image.png" />
+                        <Link href="/"><img className={styles.imageIcon} alt="" src="image.png" /></Link>
                         <div className={styles.text12}>
                             <b className={styles.girman}>Girman</b>
                             <div className={styles.technologies}>TECHNOLOGIES</div>
@@ -62,7 +60,9 @@ const Search_Query: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-20">
                         {isLoading && <div className="col-span-full">Loading...</div>}
                         {error && <div className="col-span-full text-red-500">Error: {error.message}</div>}
-                        {data && data.length === 0 && <div className="col-span-full">No results found</div>}
+                        {data && data.length === 0 && <div className="col-span-full">
+                                <No_Result />
+                        </div>}
                         {data && data.map((user: User) => (
                                 <Cards user={user} />
                         ))}
