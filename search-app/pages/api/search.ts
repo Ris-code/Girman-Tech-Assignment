@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ObjectId } from "mongodb";
 import clientPromise from "@/lib/mongodb";
 
 const fetchUsers = async(query: string | string[]) => {

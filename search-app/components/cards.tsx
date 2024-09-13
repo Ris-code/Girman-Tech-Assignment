@@ -10,7 +10,6 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-    DialogFooter,
 } from "@/components/ui/dialog";
 import styles from "../styles/search.module.css"
 
