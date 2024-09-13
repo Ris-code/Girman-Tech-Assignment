@@ -64,7 +64,7 @@ const Search_Query: React.FC = () => {
                                 <No_Result />
                         </div>}
                         {data && data.map((user: User) => (
-                                <Cards user={user} />
+                                <Cards key={user._id.toString()} user={user} />
                         ))}
                 </div>
                 </main>
